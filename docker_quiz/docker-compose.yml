@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  mysql_practice:
+    build: ./mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql/init/init.sql:/docker-entrypoint-initdb.d/init.sql
